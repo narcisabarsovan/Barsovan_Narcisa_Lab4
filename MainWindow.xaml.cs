@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoLotModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Entity;
+using System.Data;
 
 namespace Barsovan_Narcisa_Lab4
 {
@@ -30,7 +33,7 @@ namespace Barsovan_Narcisa_Lab4
         //using AutoLotModel;
         ActionState action = ActionState.Nothing;
         AutoLotEntitiesModel ctx = new AutoLotEntitiesModel();
-        CollectionViewSource customerVSource;
+        CollectionViewSource customerVSource, customerOrdersVSource;
         public MainWindow()
         {
             InitializeComponent();
@@ -267,9 +270,10 @@ if (action == ActionState.Edit)
                     SaveCustomers();
                     break;
                 case "Inventory":
-                    SaveInventory();
+                    //SaveInventory();
                     break;
                 case "Orders":
+                    SaveOrders();
                     break;
             }
             ReInitialize();
